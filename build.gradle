@@ -1,0 +1,44 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven { url "http://repo.spring.io/snapshot" }
+        maven { url "http://repo.spring.io/milestone" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.0.BUILD-SNAPSHOT")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'spring-boot'
+
+jar {
+    baseName = 'appdirect'
+    version =  '0.0.1-SNAPSHOT'
+    manifest{
+    	attributes 'Main-Class':'org.appdirect.challenge.AppDirectApplication'
+    } 	
+}
+
+repositories {
+    jcenter()
+    maven { url "http://repo.spring.io/snapshot" }
+    maven { url "http://repo.spring.io/milestone" }
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("com.h2database:h2")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+    compile("org.apache.httpcomponents:httpclient")
+    compile("commons-codec:commons-codec")
+    compile("oauth.signpost:signpost-core:1.2.1.2")
+    compile("com.googlecode.json-simple:json-simple")
+    compile("commons-io:commons-io:2.4")
+    compile("com.fasterxml.jackson.core:jackson-core")
+    compile("org.json:json")
+    
+	testCompile("org.testng:testng:6.9.6")
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}
