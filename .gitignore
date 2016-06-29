@@ -10,7 +10,7 @@ bin/
 *.settings
 
 # OS X
-.DS_Store
+_DS_Store
 
 # Logs
 /*.log
